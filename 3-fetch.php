@@ -2,14 +2,8 @@
 
 // Different types of Fetch(FETCH_BOTH, FETCH_NUM, FETCH_ASSOC)
  
-//driver:host=127.0.0.1, database, 
-try {
-$handler = new PDO('mysql:host=127.0.0.1;dbname=app','john','hondarul');
-$handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-	echo $e->getMessage();
-	die();
-}
+// The Connection
+require('1-connect.php');
 
 $query = $handler->query('SELECT * FROM guestbook');
 
