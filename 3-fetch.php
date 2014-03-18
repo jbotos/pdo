@@ -1,4 +1,6 @@
 <?php
+
+// Different types of Fetch(FETCH_BOTH, FETCH_NUM, FETCH_ASSOC)
  
 //driver:host=127.0.0.1, database, 
 try {

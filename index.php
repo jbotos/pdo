@@ -1,30 +1,22 @@
-<?php
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PHP PDO</title>
+</head>
 
-//Fetch Data into a Class
+<body>
 
-try {
-$handler = new PDO('mysql:host=127.0.0.1;dbname=app','john','hondarul');
-$handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-	echo $e->getMessage();
-	die();
-}
+<ul>
+	<li><a href="1-connect.php">1. Connect to Database</a></li>
+    <li><a href="2-get-results.php">2. Fetch Results</a></li>
+    <li><a href="3-fetch.php">2. Fetch Object</a></li>
+    <li><a href="4-fetch-to-class.php">4. Fetch to Class</a></li>
+    <li><a href="5-fetchall.php">5. Fetch All</a></li>
+    <li><a href="6-insert-prepare.php">6. Insert: Prepare/Execute</a></li>
+    <li><a href="7-last-insert.php">7. Inseet: Get Last Inserted ID</a></li>
+    <li><a href="8-count-while.php">8. Count then Loop</a></li>
+</ul>
 
-
-
-class GuestbookEntry {
-	public $id, $name, $message, $posted, $entry;	
-	
-	public function __construct() {
-		$this->entry = "{$this->name} posted: {$this->message}";
-	}
-}
-
-$query = $handler->query('SELECT * FROM guestbook');
-$query->setFetchMode(PDO::FETCH_CLASS, 'GuestbookEntry');
-// set fetch mode
-while($r = $query->fetch()) {
-	// output 
-	//echo '<pre>', print_r($r), '</pre>';
-	echo $r->entry, '<br>';
-}
+</body>
+</html>
